@@ -1,0 +1,266 @@
+/* ==========================================================
+   Portfolio Stylesheet
+   Demonstrates:
+     - CSS Box Model (content, padding, border, margin)
+     - Positioning (fixed header, relative sections)
+     - Flexbox layout
+     - Responsive design with media queries
+   ========================================================== */
+
+/* --- Reset & base ---------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   /* Box Model: padding+border stay inside width */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fafafa;
+}
+
+/* Centered container reused across sections */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;           /* Box Model: horizontal auto-margin centres block */
+    padding: 0 20px;
+}
+
+/* --- Header (FIXED positioning) -------------------------- */
+.site-header {
+    position: fixed;          /* Positioning: stays visible while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1f2937;
+    padding: 15px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header-inner {
+    display: flex;            /* Flexbox: logo left, nav right */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #60a5fa;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav a {
+    color: #f3f4f6;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav a:hover {
+    color: #60a5fa;
+}
+
+/* --- Hero section ---------------------------------------- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;      /* Flexbox: vertical centering */
+    justify-content: center;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.highlight {
+    color: #fbbf24;
+}
+
+.tagline {
+    font-size: 1.15rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* --- Buttons --------------------------------------------- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;       /* Box Model: internal spacing */
+    border: 2px solid transparent;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.25s;
+}
+
+.btn-primary {
+    background-color: #fbbf24;
+    color: #1f2937;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    border-color: #fbbf24;
+    color: #fbbf24;
+}
+
+/* --- Generic section ------------------------------------- */
+.section {
+    padding: 80px 0;          /* Box Model: vertical breathing room */
+}
+
+.section-alt {
+    background-color: #f3f4f6;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #1f2937;
+    position: relative;       /* Positioning: anchor for the underline */
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #3b82f6;
+    margin: 12px auto 0;      /* Box Model auto-centering */
+    border-radius: 2px;
+}
+
+.about-text {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+/* --- Projects grid --------------------------------------- */
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.project-card {
+    flex: 1 1 300px;          /* Flexbox: grow, shrink, base 300px */
+    max-width: 340px;
+    background: white;
+    padding: 25px;            /* Box Model: content padding */
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+    color: #1e40af;
+    margin-bottom: 10px;
+}
+
+.project-card .tech {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* --- Skills grid ----------------------------------------- */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.skill-box {
+    flex: 1 1 200px;
+    max-width: 240px;
+    background-color: white;
+    padding: 20px;
+    border-left: 4px solid #3b82f6;   /* Box Model: distinctive left border */
+    border-radius: 4px;
+    text-align: center;
+}
+
+.skill-box h4 {
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.skill-box p {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* --- Contact section ------------------------------------- */
+.contact-inner {
+    text-align: center;
+}
+
+.contact-inner p {
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+}
+
+/* --- Footer ---------------------------------------------- */
+.site-footer {
+    background-color: #1f2937;
+    color: #9ca3af;
+    padding: 25px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive design (mobile) -------------------------- */
+@media (max-width: 700px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .nav ul {
+        gap: 15px;
+    }
+
+    .nav a {
+        font-size: 0.85rem;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+}

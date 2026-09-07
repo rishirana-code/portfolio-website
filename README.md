@@ -28,4 +28,4 @@ portfolio-website/
 2. Open `index.html` in any browser.
 
 ## Author
-**Rishi** — B.Tech Computer Science, 5th Semester
+**Rishi Rana(rn - 67)** — B.Tech Computer Science, 5th Semester
